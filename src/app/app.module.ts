@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -16,13 +16,13 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     AccueilComponent,
-    ProblemeComponent,
-    ReactiveFormsModule
+    ProblemeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
