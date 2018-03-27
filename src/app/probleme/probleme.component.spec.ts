@@ -26,13 +26,19 @@ describe('ProblemeComponent', () => {
      expect(component).toBeTruthy();
    });
 
-   it('champ PRENOM invalide avec 2 caractères', () => {
+   it('zone PRENOM invalide avec 2 caractères', () => {
      let errors = {};
     let zone = component.problemeForm.controls['prenom'];
     zone.setValue('a'.repeat(2));
     errors = zone.errors || {};
     expect(errors['minlength']).toBeTruthy();
-   });
+    });
 
-   
+   it('zone PRENOM valide avec 3 caractères', () => {
+    let errors = {};
+   let zone = component.problemeForm.controls['prenom'];
+   zone.setValue('a'.repeat(3));
+   errors = zone.errors || {};
+   expect(errors['minlength']).toBeFalsy();
+   });
 });
