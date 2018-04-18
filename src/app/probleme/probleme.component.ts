@@ -22,18 +22,20 @@ export class ProblemeComponent implements OnInit {
         prenom: ['',[VerifierCaracteresValidator.sansEspaces(), VerifierCaracteresValidator.longueurMinimum(3)]],
         nom: ['',[VerifierCaracteresValidator.sansEspaces(), VerifierCaracteresValidator.longueurMinimum(3)]],
         noType: ['', Validators.required],
-        Notification:['appliquerNotification'],
         telephone: [{value: '', disabled: true}],
+        notifier:['PasNotifier'],
         notificationCourrielGroupe: this.fb.group({
           Courriel: [{value: '', disabled: true}],
           CourrielValidation: [{value: '', disabled: true}]
-
         })
     });
 
     this.types.obtenirTypes()
     .subscribe(typ => this.typesProblemes = typ,
                error => this.errorMessage = <any> error);
+
+    this.problemeForm.get('notifier').valueChanges
+    .subscribe(value => this.appliquerNotifications(value));
   }
 
   appliquerNotifications(typeNotification: string): void{
